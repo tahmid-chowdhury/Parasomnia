@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmjs0k8481u47"]
+[gd_scene load_steps=4 format=3 uid="uid://dmjs0k8481u47"]
 
 [ext_resource type="Script" uid="uid://cmjpef062tgwg" path="res://scenes/player.gd" id="1_p0vlq"]
+
+[sub_resource type="Gradient" id="Gradient_p0vlq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6fml"]
+gradient = SubResource("Gradient_p0vlq")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_p0vlq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.183594, 42.5)
+texture = SubResource("GradientTexture1D_v6fml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
