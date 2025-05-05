@@ -14,6 +14,13 @@ config/name="Parasomnia"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=224
+window/size/window_width_override=823
+window/size/window_height_override=720
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -21,5 +28,6 @@ version_control/autoload_on_startup=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
