@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://ci8lgnqv61jnv"]
+
+[ext_resource type="Script" uid="uid://5bbgublmg301" path="res://scenes/userinterfaces/Main_Menu_Screen/main_menu.gd" id="1_yjb1k"]
+[ext_resource type="Texture2D" uid="uid://culbe814d6ui7" path="res://scenes/userinterfaces/images/Title_Screen.png" id="2_mirik"]
+[ext_resource type="Texture2D" uid="uid://dpbduk4oyal7p" path="res://scenes/userinterfaces/images/Title_Screen_Play_Button.png" id="3_kvgyr"]
+[ext_resource type="Texture2D" uid="uid://d0swtre704c1o" path="res://scenes/userinterfaces/images/Title_Screen_Options_Button.png" id="4_i2ls4"]
+[ext_resource type="Texture2D" uid="uid://cvxhmk1hfk03y" path="res://scenes/userinterfaces/images/Title_Screen_Exit_Button.png" id="5_dc367"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hivix"]
+texture = ExtResource("2_mirik")
+modulate_color = Color(0.654232, 0.654232, 0.654232, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvgyr"]
+texture = ExtResource("3_kvgyr")
+modulate_color = Color(1, 0.631635, 0.254127, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5kbx8"]
+texture = ExtResource("3_kvgyr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2ls4"]
+texture = ExtResource("4_i2ls4")
+modulate_color = Color(1, 0.631373, 0.254902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gxno"]
+texture = ExtResource("4_i2ls4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc367"]
+texture = ExtResource("5_dc367")
+modulate_color = Color(1, 0.631373, 0.254902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoauq"]
+texture = ExtResource("5_dc367")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjb1k")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hivix")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -86.0
+offset_right = 24.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 11
+theme_override_styles/hover = SubResource("StyleBoxTexture_kvgyr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5kbx8")
+text = "
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 11
+theme_override_styles/hover = SubResource("StyleBoxTexture_i2ls4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7gxno")
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 11
+theme_override_styles/hover = SubResource("StyleBoxTexture_dc367")
+theme_override_styles/normal = SubResource("StyleBoxTexture_eoauq")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]

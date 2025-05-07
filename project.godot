@@ -11,16 +11,23 @@ config_version=5
 [application]
 
 config/name="Parasomnia"
-run/main_scene="uid://c2m4n50uin5if"
+run/main_scene="uid://ci8lgnqv61jnv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ScreenSettings="*res://scenes/global_variables/ScreenSettings.gd"
 
 [display]
 
 window/size/viewport_width=256
 window/size/viewport_height=224
+window/size/mode=4
 window/size/window_width_override=823
 window/size/window_height_override=720
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
 
 [editor]
 

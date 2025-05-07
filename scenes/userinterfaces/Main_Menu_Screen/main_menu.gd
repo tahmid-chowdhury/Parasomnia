@@ -1,0 +1,17 @@
+extends Control
+
+
+func _ready():
+	if ScreenSettings.screen_mode_index != -1:
+		ScreenSettings.apply_screen_settings(ScreenSettings.screen_mode_index)
+
+func _on_start_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_options_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/userinterfaces/Options_Screen/Options_Screen.tscn")
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
