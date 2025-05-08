@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://hbdvadxikrgf"]
+
+[ext_resource type="Script" uid="uid://t7pml5g8i6r" path="res://scenes/global_components/character_text_box.gd" id="1_klb58"]
+[ext_resource type="FontFile" uid="uid://bm7l20cstiuyp" path="res://scenes/userinterfaces/font/Adventurer.ttf" id="2_l7c65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2nvt"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wwco"]
+bg_color = Color(0.106858, 0.000169264, 0.226452, 1)
+
+[node name="CharacterTextBox" type="CanvasLayer"]
+script = ExtResource("1_klb58")
+
+[node name="Textbox_Container" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="Textbox_Container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2nvt")
+
+[node name="MarginContainer" type="MarginContainer" parent="Textbox_Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="Textbox_Container/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3wwco")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Textbox_Container/MarginContainer"]
+layout_mode = 2
+
+[node name="Textbox_Start" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_l7c65")
+text = ">"
+
+[node name="TextInput" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_l7c65")
+theme_override_font_sizes/normal_font_size = 8
+text = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+scroll_active = false
+
+[node name="Textbox_End" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/normal_font = ExtResource("2_l7c65")
+text = "v"

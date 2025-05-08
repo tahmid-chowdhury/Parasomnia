@@ -12,7 +12,7 @@ modulate_color = Color(0.654232, 0.654232, 0.654232, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvgyr"]
 texture = ExtResource("3_kvgyr")
-modulate_color = Color(1, 0.631635, 0.254127, 1)
+modulate_color = Color(1, 0.631373, 0.254902, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5kbx8"]
 texture = ExtResource("3_kvgyr")
@@ -47,6 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.000710172
 theme_override_styles/panel = SubResource("StyleBoxTexture_hivix")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -62,6 +63,7 @@ offset_right = 24.0
 offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
+rotation = -0.00384562
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
