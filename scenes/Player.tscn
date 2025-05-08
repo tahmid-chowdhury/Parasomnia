@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmjs0k8481u47"]
+[gd_scene load_steps=2 format=3 uid="uid://srf8fjtpxu3t"]
 
-[ext_resource type="Script" uid="uid://b2bjtv6ayfl88" path="res://scenes/player.gd" id="1_p0vlq"]
+[ext_resource type="PackedScene" uid="uid://d2krt2seqlxdx" path="res://scenes/characters/maincast/maincharacter/player.tscn" id="1_p0vlq"]
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_p0vlq")
+[node name="PlayGround" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_p0vlq")]
+position = Vector2(4, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(10, 10)
