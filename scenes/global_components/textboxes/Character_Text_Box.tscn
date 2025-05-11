@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://hbdvadxikrgf"]
 
-[ext_resource type="Script" uid="uid://t7pml5g8i6r" path="res://scenes/global_components/character_text_box.gd" id="1_klb58"]
+[ext_resource type="Script" uid="uid://t7pml5g8i6r" path="res://scenes/global_components/textboxes/character_text_box.gd" id="1_klb58"]
 [ext_resource type="FontFile" uid="uid://bm7l20cstiuyp" path="res://scenes/userinterfaces/font/Adventurer.ttf" id="2_l7c65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2nvt"]
@@ -63,7 +63,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_l7c65")
 theme_override_font_sizes/normal_font_size = 8
-text = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+text = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
 scroll_active = false
 
 [node name="Textbox_End" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]

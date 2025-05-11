@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScreenSettings="*res://scenes/global_variables/ScreenSettings.gd"
+PartyManager="*res://scenes/battle_components/party_information/party_manager.gd"
 
 [display]
 
