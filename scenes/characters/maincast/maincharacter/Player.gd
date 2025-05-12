@@ -17,6 +17,10 @@ func _process(delta: float) -> void:
 	
 	velocity = direction * move_speed
 	
+	if Input.is_action_just_pressed("space"):
+		TextBox.queue_text("Enemy: You shall not pass!")
+
+	
 	if Input.is_action_pressed("shift"):
 		move_speed = 50
 	else:

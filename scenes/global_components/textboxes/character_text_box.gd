@@ -1,9 +1,11 @@
 extends CanvasLayer
 
-@onready var Textbox_Container = $Textbox_Container
-@onready var Start_Symbol = $Textbox_Container/MarginContainer/HBoxContainer/Textbox_Start
-@onready var End_Symbol = $Textbox_Container/MarginContainer/HBoxContainer/Textbox_End
-@onready var TextInput = $Textbox_Container/MarginContainer/HBoxContainer/TextInput
+@onready var Textbox_Container = get_node("Textbox_Container")
+@onready var Start_Symbol = get_node("Textbox_Container/MarginContainer/HBoxContainer/Textbox_Start")
+@onready var End_Symbol = get_node("Textbox_Container/MarginContainer/HBoxContainer/Textbox_End")
+@onready var TextInput = get_node("Textbox_Container/MarginContainer/HBoxContainer/TextInput")
+
+
 var TextTween
 var current_state = State.READY
 const Char_read_rate = 0.05
@@ -41,8 +43,7 @@ func queue_text(next_text):
 
 func _ready() -> void:
 	print("Stating Text State")
-	queue_text("I am the first text")
-	queue_text("I am the second text")
+	queue_text("Hellio")
 	
 func reset_textbox():
 	TextInput.text = ""
