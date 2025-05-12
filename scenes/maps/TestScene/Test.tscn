@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjlwiak7qs876"]
 
-[ext_resource type="PackedScene" uid="uid://c7n04du6ujavd" path="res://scenes/characters/maincast/maincharacter/MainCharacter.tscn" id="1_2jlpk"]
+[ext_resource type="PackedScene" uid="uid://hkicpd438c2h" path="res://scenes/characters/maincast/maincharacter/MainCharacter.tscn" id="1_2jlpk"]
 
 [node name="Test" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_2jlpk")]
+[node name="CharacterBody2D2" parent="." instance=ExtResource("1_2jlpk")]

@@ -4,14 +4,14 @@ var enemies = [{
 	"enemy_id": 1,
 	"name": "Test",
 	"enemy_health": 150,
-	"speed": 12,
+	"speed": 3,
 	"enemy_power": 12
 },
 {
 	"enemy_id": 2,
 	"name": "Test2",
 	"enemy_health": 150,
-	"speed": 12,
+	"speed": 6,
 	"enemy_power": 2
 	}
 ]

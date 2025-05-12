@@ -30,21 +30,38 @@ func index_turn():
 		var attacked_index = PartyManager.get_random_alive_member()
 		if attacked_index == -1:
 			end_fight()
+			return
 
 		var attacked_player = PartyManager.party_members[attacked_index]["name"]
 		var damage = attacker.get("enemy_power", 5)
+		if PartyManager.party_members[attacked_index]["move"] == "Defend":
+			damage *= 0.5 
 		PartyManager.damage_player(attacked_player, damage)
 		print("%s has taken %d damage from %s" % [attacked_player, damage, attacker["name"]])
 		
-		if PartyManager.party_members[attacked_index]["hp"] <= 0:
-			for alive_in_battle in range(Turn_Array.size()):
-				if PartyManager.party_members[attacked_index]["name"] == Turn_Array[alive_in_battle]["name"]:
-					Turn_Array.remove_at(alive_in_battle)
-				
-		
+		if PartyManager.party_members[attacked_index]["hp"] == 0:
+			for i in range(Turn_Array.size()):
+				if Turn_Array[i]["name"] == attacked_player:
+					Turn_Array.remove_at(i)
+					break
+
+			var alive_left = false
+			for p in PartyManager.party_members:
+				if p["hp"] > 0:
+					alive_left = true
+					break
+			if not alive_left:
+				end_fight()
+				return
 	else:
 		var player_choice = await character_choice_manager.player_choice
-		print(player_choice)
+		var index = -1
+		for i in range(PartyManager.party_members.size()):
+			if PartyManager.party_members[i]["name"] == attacker["name"]:
+				index = i
+				print(index)
+				break
+		PartyManager.party_members[index]["move"] = player_choice
 		
 	turn_index += 1
 	process_and_reset_turns()
@@ -65,4 +82,5 @@ func add_enemies():
 			Turn_Array.append(full_entry)
 
 func end_fight():
-	pass
+	Turn_Array.clear()
+	get_tree().change_scene_to_file("res://scenes/maps/TestScene/Test.tscn")

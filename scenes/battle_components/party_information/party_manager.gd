@@ -12,6 +12,7 @@ var party_members = [{
 	"level": 1,
 	"xp": 0,
 	"xp_required": 100,
+	"move": "idle",
 },
 {
 	"name": "Mage",
@@ -20,14 +21,16 @@ var party_members = [{
 	"mana": 50,
 	"strength": 10,
 	"defense": 5,
-	"speed": 5,
+	"speed": 7,
 	"level": 1,
 	"xp": 0,
 	"xp_required": 100,
+	"move": "idle",
 }]
 
 func _ready():
 	randomize()
+	
 
 func level_up_stats(Leveled_Player: String):
 	var party_member = find_party_member(Leveled_Player)

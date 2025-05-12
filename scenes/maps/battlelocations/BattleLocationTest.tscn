@@ -207,3 +207,4 @@ theme_override_font_sizes/normal_font_size = 6
 text = "Lv x"
 
 [connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer/Button" to="CanvasLayer/Control" method="_on_attack_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer/Button2" to="CanvasLayer/Control" method="_on_defend_pressed"]
