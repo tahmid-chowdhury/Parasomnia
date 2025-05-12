@@ -12,6 +12,18 @@ var party_members = [{
 	"level": 1,
 	"xp": 0,
 	"xp_required": 100,
+},
+{
+	"name": "Mage",
+	"hp": 100,
+	"max_hp": 100,
+	"mana": 50,
+	"strength": 10,
+	"defense": 5,
+	"speed": 5,
+	"level": 1,
+	"xp": 0,
+	"xp_required": 100,
 }]
 
 func _ready():

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp44ti45g3hf"]
+
+[ext_resource type="Texture2D" uid="uid://clngutq1kyeth" path="res://scenes/characters/enemies/forest_enemies/Goblin.png" id="1_hlqam"]
+[ext_resource type="Texture2D" uid="uid://d2cqv1jbslbwp" path="res://scenes/battle_components/sprite_components/arrow_down.png" id="2_u67ga"]
+
+[sub_resource type="Animation" id="Animation_vw4tr"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_87bfp"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.101021, 0.199621, 0.300037),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(100, 1, 1, 1), Color(1, 1, 1, 1), Color(100, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ix8g"]
+_data = {
+&"RESET": SubResource("Animation_vw4tr"),
+&"hurt": SubResource("Animation_87bfp")
+}
+
+[node name="Goblin001" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(197, 63)
+texture = ExtResource("1_hlqam")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0ix8g")
+}
+
+[node name="ArrowDown" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(213, 64)
+scale = Vector2(0.0643165, 0.0701172)
+texture = ExtResource("2_u67ga")
