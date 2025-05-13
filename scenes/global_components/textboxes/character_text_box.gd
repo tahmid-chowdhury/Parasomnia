@@ -25,14 +25,14 @@ func _process(delta: float) -> void:
 			if !text_queue.is_empty():
 				display_text()
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("enter"):
 				TextInput.visible_ratio = 1.0
 				if TextTween:
 					TextTween.kill()
 				End_Symbol.text = "v"
 				change_text_state(State.FINISHED)
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("enter"):
 				if text_queue.is_empty():
 					hide_textbox()
 				change_text_state(State.READY)

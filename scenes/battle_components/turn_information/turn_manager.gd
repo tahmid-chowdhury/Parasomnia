@@ -3,7 +3,7 @@ extends Node
 var Turn_Array = []
 var Attack_Commads = ["Attack", "Magic"]
 var turn_index: int = 0
-var total_xp_gain = []
+var total_xp_gain = 0
 @onready var character_choice_manager = $"../CanvasLayer/Control"
 
 func _ready() -> void:
@@ -72,6 +72,7 @@ func index_turn():
 			target_enemy["enemy_health"] = max(target_enemy["enemy_health"] - damage, 0)
 			print("%s attacked %s for %.1f damage" % [attacker["name"], target_enemy["name"], damage])
 			if target_enemy["enemy_health"] == 0:
+				total_xp_gain += target_enemy["given_xp"]
 				for i in range(Turn_Array.size()):
 					if Turn_Array[i]["name"] == target_enemy["name"]:
 						Turn_Array.remove_at(i)
@@ -118,7 +119,7 @@ func end_victory():
 	Turn_Array.clear()
 	print("All enemies defeated! You win!")
 	for i in range(PartyManager.party_members.size()):
-		PartyManager.level_up_stats(PartyManager.party_members[i])
+		PartyManager.level_up_stats(PartyManager.party_members[i]["name"], total_xp_gain)
 	get_tree().change_scene_to_file("res://scenes/maps/TestScene/Test.tscn")
 	
 func calculate_damage(Attack_Choice: String, Player_Index: int):

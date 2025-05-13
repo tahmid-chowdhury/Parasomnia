@@ -5,14 +5,16 @@ var enemies = [{
 	"name": "Test",
 	"enemy_health": 5,
 	"speed": 3,
-	"enemy_power": 12
+	"enemy_power": 12,
+	"given_xp": 1000
 },
 {
 	"enemy_id": 2,
 	"name": "Test2",
 	"enemy_health": 5,
 	"speed": 6,
-	"enemy_power": 2
+	"enemy_power": 2,
+	"given_xp": 1000
 	}
 ]
 var enemy_index = -1
