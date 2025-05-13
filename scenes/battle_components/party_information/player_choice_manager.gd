@@ -13,3 +13,9 @@ func _on_attack_pressed() -> void:
 func _on_defend_pressed() -> void:
 	send_character_choice("Defend")
 	
+
+	
+
+
+func _on_magic_pressed() -> void:
+	send_character_choice("Magic")

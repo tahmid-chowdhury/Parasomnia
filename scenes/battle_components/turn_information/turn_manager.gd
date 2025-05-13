@@ -1,7 +1,9 @@
 extends Node
 
 var Turn_Array = []
+var Attack_Commads = ["Attack", "Magic"]
 var turn_index: int = 0
+var total_xp_gain = []
 @onready var character_choice_manager = $"../CanvasLayer/Control"
 
 func _ready() -> void:
@@ -59,12 +61,38 @@ func index_turn():
 		for i in range(PartyManager.party_members.size()):
 			if PartyManager.party_members[i]["name"] == attacker["name"]:
 				index = i
-				print(index)
 				break
+
 		PartyManager.party_members[index]["move"] = player_choice
-		
+
+		if player_choice in Attack_Commads and EnemyManager.enemies.size() > 0:
+			var target_index = EnemyManager.enemies.size() - 1
+			var target_enemy = EnemyManager.enemies[target_index]
+			var damage = calculate_damage(player_choice, index)
+			target_enemy["enemy_health"] = max(target_enemy["enemy_health"] - damage, 0)
+			print("%s attacked %s for %.1f damage" % [attacker["name"], target_enemy["name"], damage])
+			if target_enemy["enemy_health"] == 0:
+				for i in range(Turn_Array.size()):
+					if Turn_Array[i]["name"] == target_enemy["name"]:
+						Turn_Array.remove_at(i)
+						break
+
+				EnemyManager.enemies.remove_at(target_index)
+
+
+		var enemies_alive = false
+		for e in EnemyManager.enemies:
+			if e["enemy_health"] > 0:
+				enemies_alive = true
+				break
+
+		if not enemies_alive:
+			end_victory()
+			return
+
 	turn_index += 1
 	process_and_reset_turns()
+
 	
 
 func add_party():
@@ -83,4 +111,21 @@ func add_enemies():
 
 func end_fight():
 	Turn_Array.clear()
+	print("All party Members have died")
 	get_tree().change_scene_to_file("res://scenes/maps/TestScene/Test.tscn")
+	
+func end_victory():
+	Turn_Array.clear()
+	print("All enemies defeated! You win!")
+	for i in range(PartyManager.party_members.size()):
+		PartyManager.level_up_stats(PartyManager.party_members[i])
+	get_tree().change_scene_to_file("res://scenes/maps/TestScene/Test.tscn")
+	
+func calculate_damage(Attack_Choice: String, Player_Index: int):
+	var damage = 0;
+	if Attack_Choice == "Attack":
+		damage = PartyManager.party_members[Player_Index]["strength"] * 0.6
+	else:
+		damage = PartyManager.party_members[Player_Index]["mana"] * 0.6
+	return damage
+	

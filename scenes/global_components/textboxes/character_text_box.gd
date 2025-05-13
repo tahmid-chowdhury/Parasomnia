@@ -42,8 +42,8 @@ func queue_text(next_text):
 	text_queue.push_back(next_text)
 
 func _ready() -> void:
-	print("Stating Text State")
-	queue_text("Hellio")
+	if text_queue.is_empty():
+		hide_textbox()
 	
 func reset_textbox():
 	TextInput.text = ""

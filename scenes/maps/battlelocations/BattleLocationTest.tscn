@@ -121,7 +121,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
-text = "Button"
+text = "Magic"
 
 [node name="Button2" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
@@ -208,3 +208,4 @@ text = "Lv x"
 
 [connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer/Button" to="CanvasLayer/Control" method="_on_attack_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer/Button2" to="CanvasLayer/Control" method="_on_defend_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer/Button" to="CanvasLayer/Control" method="_on_magic_pressed"]

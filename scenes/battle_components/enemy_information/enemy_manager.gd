@@ -3,14 +3,14 @@ extends Node
 var enemies = [{
 	"enemy_id": 1,
 	"name": "Test",
-	"enemy_health": 150,
+	"enemy_health": 5,
 	"speed": 3,
 	"enemy_power": 12
 },
 {
 	"enemy_id": 2,
 	"name": "Test2",
-	"enemy_health": 150,
+	"enemy_health": 5,
 	"speed": 6,
 	"enemy_power": 2
 	}
@@ -38,4 +38,7 @@ func find_enemy(selected_enemy: int):
 		if enemies[enemy]["enemy_id"] == selected_enemy:
 			return enemy
 	return -1
+	
+func place_enemies():
+	pass
 	

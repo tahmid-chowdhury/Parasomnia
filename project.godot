@@ -22,6 +22,7 @@ PartyManager="*res://scenes/battle_components/party_information/party_manager.gd
 EnemyManager="*res://scenes/battle_components/enemy_information/enemy_manager.gd"
 PlayerChoiceManager="*res://scenes/battle_components/party_information/player_choice_manager.gd"
 TextBox="*res://scenes/global_components/textboxes/Character_Text_Box.tscn"
+GameState="*res://scenes/global_components/game_state.gd"
 
 [display]
 
