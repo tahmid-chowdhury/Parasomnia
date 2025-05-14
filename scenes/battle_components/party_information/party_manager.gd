@@ -34,6 +34,7 @@ const base_party_members = [
 var party_members = []
 
 func _ready():
+
 	randomize()
 	load_party()
 	
@@ -124,10 +125,10 @@ func save_party():
 	file.close()
 
 func set_stats(player_name: String = "Hero", stats: Dictionary = {
-	"level": 5,
-	"hp": 120,
-	"mana": 40,
-	"strength": 110,
+	"level": 1,
+	"hp": 40,
+	"mana": 1,
+	"strength": 3,
 	"xp": 0,
 	"xp_required": 250
 }) -> void:
@@ -144,3 +145,6 @@ func set_stats(player_name: String = "Hero", stats: Dictionary = {
 	
 	save_party()
 	print("Stats updated for %s: %s" % [player_name, stats])
+
+func start_battle() -> void:
+	get_tree().change_scene_to_file("res://scenes/maps/battlelocations/BattleLocationTest.tscn")

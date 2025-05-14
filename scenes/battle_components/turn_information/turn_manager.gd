@@ -56,19 +56,19 @@ func index_turn():
 				end_fight()
 				return
 	else:
-		var player_choice = await character_choice_manager.player_choice
+		var choice = await character_choice_manager.player_choice
 		var index = -1
 		for i in range(PartyManager.party_members.size()):
 			if PartyManager.party_members[i]["name"] == attacker["name"]:
 				index = i
 				break
 
-		PartyManager.party_members[index]["move"] = player_choice
+		PartyManager.party_members[index]["move"] = choice
 
-		if player_choice in Attack_Commads and EnemyManager.enemies.size() > 0:
+		if choice in Attack_Commads and EnemyManager.enemies.size() > 0:
 			var target_index = EnemyManager.enemies.size() - 1
 			var target_enemy = EnemyManager.enemies[target_index]
-			var damage = calculate_damage(player_choice, index)
+			var damage = calculate_damage(choice, index)
 			target_enemy["enemy_health"] = max(target_enemy["enemy_health"] - damage, 0)
 			print("%s attacked %s for %.1f damage" % [attacker["name"], target_enemy["name"], damage])
 			if target_enemy["enemy_health"] == 0:

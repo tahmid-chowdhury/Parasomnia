@@ -1,9 +1,13 @@
 extends Node
 
 signal player_choice(value)
+
+
+func send_character_choice(choice: String):
 	
-func send_character_choice(Choice: String):
-	emit_signal("player_choice", Choice)
+	emit_signal("player_choice", choice)
+
+
 	
 
 func _on_attack_pressed() -> void:

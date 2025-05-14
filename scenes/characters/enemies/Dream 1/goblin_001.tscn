@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp44ti45g3hf"]
 
-[ext_resource type="Texture2D" uid="uid://clngutq1kyeth" path="res://scenes/characters/enemies/forest_enemies/Goblin.png" id="1_hlqam"]
+[ext_resource type="Texture2D" uid="uid://clngutq1kyeth" path="res://scenes/characters/enemies/Dream 1/Goblin.png" id="1_hlqam"]
 [ext_resource type="Texture2D" uid="uid://d2cqv1jbslbwp" path="res://scenes/battle_components/sprite_components/arrow_down.png" id="2_u67ga"]
 
 [sub_resource type="Animation" id="Animation_vw4tr"]

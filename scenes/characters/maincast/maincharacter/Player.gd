@@ -8,6 +8,7 @@ var state: String = "idle"
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer 
 
+
 func _ready() -> void:
 	pass
 

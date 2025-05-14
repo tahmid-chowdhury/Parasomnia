@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjlwiak7qs876"]
+
+[ext_resource type="PackedScene" uid="uid://hkicpd438c2h" path="res://scenes/characters/maincast/maincharacter/MainCharacter.tscn" id="1_2jlpk"]
+[ext_resource type="Script" uid="uid://bk0bclek2dbyb" path="res://scenes/maps/TestScene/test.gd" id="1_cq2v8"]
+[ext_resource type="Script" uid="uid://h0shbtce44tp" path="res://scenes/maps/TestScene/ColissionTest.gd" id="2_c6wni"]
+[ext_resource type="Texture2D" uid="uid://cg0yj0ybwnuyj" path="res://scenes/userinterfaces/images/sword.png" id="3_cq2v8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpsq1"]
+size = Vector2(211.862, 511.999)
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_cq2v8")
+
+[node name="Player" parent="." instance=ExtResource("1_2jlpk")]
+
+[node name="BattleTrigger" type="Area2D" parent="."]
+script = ExtResource("2_c6wni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleTrigger"]
+position = Vector2(122, 175.5)
+scale = Vector2(0.0283203, 0.0332032)
+shape = SubResource("RectangleShape2D_jpsq1")
+
+[node name="Sword" type="Sprite2D" parent="BattleTrigger"]
+position = Vector2(121.75, 175.5)
+scale = Vector2(0.0283203, 0.0332032)
+texture = ExtResource("3_cq2v8")

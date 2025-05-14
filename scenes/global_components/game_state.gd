@@ -1,6 +1,7 @@
 extends Node
 
 var last_position := Vector2.ZERO
-var battle_trigger_used := false
+var enemy_last_positions : Dictionary = {}
 
 var player_level_stats := []
+var used_triggers: Array = []

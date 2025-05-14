@@ -1,21 +1,6 @@
 extends Node
 
-var enemies = [{
-	"enemy_id": 1,
-	"name": "Test",
-	"enemy_health": 5,
-	"speed": 3,
-	"enemy_power": 12,
-	"given_xp": 1000
-},
-{
-	"enemy_id": 2,
-	"name": "Test2",
-	"enemy_health": 5,
-	"speed": 6,
-	"enemy_power": 2,
-	"given_xp": 1000
-	}
+var enemies = [
 ]
 var enemy_index = -1
 
@@ -43,4 +28,9 @@ func find_enemy(selected_enemy: int):
 	
 func place_enemies():
 	pass
+	
+func add_enemy_group(enemy_group: Array):
+	for i in range(enemy_group.size()):
+		enemies.append(enemy_group[i])		
+		
 	

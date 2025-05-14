@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8eqp5o1gkq3j"]
+
+[ext_resource type="Script" uid="uid://h0shbtce44tp" path="res://scenes/characters/enemies/EnemyGroupCombatScript.gd" id="1_mt2hi"]
+[ext_resource type="Texture2D" uid="uid://clngutq1kyeth" path="res://scenes/characters/enemies/Dream 1/Goblin.png" id="2_1cgp7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpsq1"]
+size = Vector2(141.241, 361.411)
+
+[node name="BattleTrigger" type="Area2D"]
+script = ExtResource("1_mt2hi")
+trigger_id = "1"
+
+[node name="Goblin" type="Sprite2D" parent="."]
+scale = Vector2(0.375, 0.4375)
+texture = ExtResource("2_1cgp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.0283203, 0.0332032)
+shape = SubResource("RectangleShape2D_jpsq1")
