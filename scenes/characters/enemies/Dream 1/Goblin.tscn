@@ -1,7 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp44ti45g3hf"]
 
-[ext_resource type="Texture2D" uid="uid://clngutq1kyeth" path="res://scenes/characters/enemies/Dream 1/Goblin.png" id="1_hlqam"]
-[ext_resource type="Texture2D" uid="uid://d2cqv1jbslbwp" path="res://scenes/battle_components/sprite_components/arrow_down.png" id="2_u67ga"]
+[ext_resource type="Texture2D" uid="uid://clngutq1kyeth" path="res://scenes/characters/enemies/Dream 1/Goblin.png" id="1_d23se"]
 
 [sub_resource type="Animation" id="Animation_vw4tr"]
 length = 0.001
@@ -27,20 +26,20 @@ _data = {
 &"hurt": SubResource("Animation_87bfp")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d23se"]
+size = Vector2(13, 26)
+
 [node name="Goblin001" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(197, 63)
-texture = ExtResource("1_hlqam")
+texture = ExtResource("1_d23se")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_0ix8g")
 }
 
-[node name="ArrowDown" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(213, 64)
-scale = Vector2(0.0643165, 0.0701172)
-texture = ExtResource("2_u67ga")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_d23se")

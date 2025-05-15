@@ -15,19 +15,6 @@ const base_party_members = [
 		"xp": 0,
 		"xp_required": 100,
 		"move": "idle",
-	},
-	{
-		"name": "Mage",
-		"hp": 100,
-		"max_hp": 100,
-		"mana": 100,
-		"strength": 12,
-		"defense": 5,
-		"speed": 7,
-		"level": 1,
-		"xp": 0,
-		"xp_required": 100,
-		"move": "idle",
 	}
 ]
 

@@ -21,8 +21,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		for i in range(PartyManager.party_members.size()):
 			TextBox.queue_text(str(PartyManager.party_members[i]["level"]))
-		
-		
+	
 	
 	
 	if Input.is_action_pressed("shift"):

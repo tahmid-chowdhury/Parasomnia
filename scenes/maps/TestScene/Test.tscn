@@ -9,25 +9,45 @@ script = ExtResource("1_cq2v8")
 
 [node name="Player" parent="." instance=ExtResource("1_2jlpk")]
 position = Vector2(150, 150)
+scale = Vector2(0.990511, 1)
 
 [node name="EnemyGroup" parent="." instance=ExtResource("5_jpsq1")]
 position = Vector2(50, 56)
 enemy_group = [{
-"enemy_health": 100,
+"enemy_health": 5,
 "enemy_id": 1,
 "enemy_power": 1,
-"given_xp": 100000,
-"name": "Test",
-"speed": 12
+"given_xp": 1000,
+"name": "Goblin",
+"speed": 3,
+"sprite_node": ""
 }, {
 "enemy_health": 5,
 "enemy_id": 2,
 "enemy_power": 2,
 "given_xp": 1000,
-"name": "Test2",
-"speed": 6
+"name": "Ninja",
+"speed": 6,
+"sprite_node": ""
 }]
 
 [node name="BattleTrigger2" parent="." instance=ExtResource("5_jpsq1")]
 position = Vector2(124, 42)
 trigger_id = "2"
+enemy_group = [{
+"enemy_health": 5,
+"enemy_id": 1,
+"enemy_power": 1,
+"given_xp": 1000,
+"name": "Goblin",
+"speed": 3,
+"sprite_node": ""
+}, {
+"enemy_health": 5,
+"enemy_id": 2,
+"enemy_power": 2,
+"given_xp": 1000,
+"name": "Ninja",
+"speed": 6,
+"sprite_node": ""
+}]

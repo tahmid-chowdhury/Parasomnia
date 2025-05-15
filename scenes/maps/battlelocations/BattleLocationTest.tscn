@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://51an7idygm6b"]
+[gd_scene load_steps=8 format=3 uid="uid://51an7idygm6b"]
 
 [ext_resource type="Script" uid="uid://dajrok1dnlb68" path="res://scenes/battle_components/turn_information/turn_manager.gd" id="1_5txgg"]
+[ext_resource type="Script" uid="uid://bgu6wrc4jo6wi" path="res://scenes/maps/battlelocations/battle_location_test.gd" id="1_nnqnf"]
 [ext_resource type="Script" uid="uid://kvtr38o1ep4d" path="res://scenes/battle_components/party_information/party_manager.gd" id="2_853rh"]
 [ext_resource type="Script" uid="uid://0oxqvwt0m87y" path="res://scenes/battle_components/enemy_information/enemy_manager.gd" id="3_nnqnf"]
 [ext_resource type="Script" uid="uid://km6krchbnm1s" path="res://scenes/battle_components/party_information/player_choice_manager.gd" id="4_mat8w"]
@@ -26,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nnqnf")
 
 [node name="TurnManager" type="Node" parent="."]
 script = ExtResource("1_5txgg")
