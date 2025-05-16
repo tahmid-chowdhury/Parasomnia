@@ -65,6 +65,7 @@ func hide_textbox():
 	
 func display_text():
 	var display_text  = text_queue.pop_front()
+	TextInput.bbcode_enabled = true
 	TextInput.text = display_text
 	TextInput.visible_ratio = 0.0
 	change_text_state(State.READING)

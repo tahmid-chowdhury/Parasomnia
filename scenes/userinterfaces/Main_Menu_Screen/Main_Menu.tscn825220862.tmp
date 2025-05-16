@@ -1,19 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://ci8lgnqv61jnv"]
+[gd_scene load_steps=13 format=3 uid="uid://ci8lgnqv61jnv"]
 
 [ext_resource type="Script" uid="uid://5bbgublmg301" path="res://scenes/userinterfaces/Main_Menu_Screen/main_menu.gd" id="1_yjb1k"]
 [ext_resource type="Texture2D" uid="uid://culbe814d6ui7" path="res://scenes/userinterfaces/images/Title_Screen.png" id="2_mirik"]
 [ext_resource type="Texture2D" uid="uid://dpbduk4oyal7p" path="res://scenes/userinterfaces/images/Title_Screen_Play_Button.png" id="3_kvgyr"]
-[ext_resource type="Script" uid="uid://pfokxbegjjwv" path="res://scenes/userinterfaces/Main_Menu_Screen/buttons/ButtonControl.gd" id="4_dc367"]
+[ext_resource type="Script" uid="uid://7tprah74d5wa" path="res://scenes/userinterfaces/Main_Menu_Screen/buttons/start.gd" id="4_dc367"]
 [ext_resource type="Texture2D" uid="uid://d0swtre704c1o" path="res://scenes/userinterfaces/images/Title_Screen_Options_Button.png" id="4_i2ls4"]
 [ext_resource type="Texture2D" uid="uid://cvxhmk1hfk03y" path="res://scenes/userinterfaces/images/Title_Screen_Exit_Button.png" id="5_dc367"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hivix"]
 texture = ExtResource("2_mirik")
 modulate_color = Color(0.654232, 0.654232, 0.654232, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvgyr"]
-texture = ExtResource("3_kvgyr")
-modulate_color = Color(1, 0.631373, 0.254902, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5kbx8"]
 texture = ExtResource("3_kvgyr")
@@ -74,7 +70,6 @@ focus_neighbor_bottom = NodePath("../Options")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/h_separation = 10
 theme_override_font_sizes/font_size = 11
-theme_override_styles/hover = SubResource("StyleBoxTexture_kvgyr")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5kbx8")
 text = "
 "
@@ -90,7 +85,6 @@ theme_override_constants/h_separation = 10
 theme_override_font_sizes/font_size = 11
 theme_override_styles/hover = SubResource("StyleBoxTexture_i2ls4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7gxno")
-script = ExtResource("4_dc367")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -102,7 +96,6 @@ theme_override_constants/h_separation = 10
 theme_override_font_sizes/font_size = 11
 theme_override_styles/hover = SubResource("StyleBoxTexture_dc367")
 theme_override_styles/normal = SubResource("StyleBoxTexture_eoauq")
-script = ExtResource("4_dc367")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]

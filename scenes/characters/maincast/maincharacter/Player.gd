@@ -20,10 +20,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("space"):
 		for i in range(PartyManager.party_members.size()):
-			TextBox.queue_text(str(PartyManager.party_members[i]["level"]))
-	
-	
-	
+					TextBox.queue_text("Theres absolutely [color=red]NO[/color] way that just happened")
+			
 	if Input.is_action_pressed("shift"):
 		move_speed = 50
 	else:

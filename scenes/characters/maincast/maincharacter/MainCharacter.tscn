@@ -68,6 +68,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_bg0y5"]
 resource_name = "walk_down"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,6 +84,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_27bf8"]
 resource_name = "walk_side"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -98,6 +100,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ak888"]
 resource_name = "walk_up"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

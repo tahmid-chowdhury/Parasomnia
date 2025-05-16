@@ -3,10 +3,8 @@ extends Node
 var screen_mode_index: int = -1
 
 func _ready():
-	if screen_mode_index == -1:
 		apply_screen_settings(0)
-
-
+		
 func apply_screen_settings(index: int) -> void:
 	var current_screen := DisplayServer.window_get_current_screen()
 	DisplayServer.window_set_current_screen(current_screen)
