@@ -52,7 +52,6 @@ func level_up_stats(Leveled_Player: String, xp_amount: int):
 		party_members[party_member]["level"] += 1
 		party_members[party_member]["xp"] -= old_xp_required
 		party_members[party_member]["xp_required"] = int(1.2 * old_xp_required)
-	save_party()
 	return
 
 
@@ -129,8 +128,7 @@ func set_stats(player_name: String = "Hero", stats: Dictionary = {
 			party_members[index][key] = stats[key]
 		else:
 			print("Invalid stat key: %s" % key)
-	
-	save_party()
+
 	print("Stats updated for %s: %s" % [player_name, stats])
 
 func start_battle() -> void:

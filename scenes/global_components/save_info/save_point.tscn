@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://icnaqs71tqr2"]
+
+[ext_resource type="Texture2D" uid="uid://w65pdsykk1j" path="res://scenes/global_components/save_info/Campfire.png" id="1_mkflr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i83c"]
+size = Vector2(15.125, 13.0938)
+
+[node name="SavePoint" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 2.38419e-07)
+scale = Vector2(-0.0127552, 0.0109501)
+texture = ExtResource("1_mkflr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2i83c")

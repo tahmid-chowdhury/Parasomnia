@@ -4,13 +4,18 @@ var move_speed: float = 25.0
 var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
 var state: String = "idle"
+var player = self
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer 
 
 
 func _ready() -> void:
-	pass
+	if GameState.StartFromSave:
+		player.global_position = load_location()
+		GameState.StartFromSave = false
+	else:
+		player.global_position = GameState.last_position
 
 func _process(delta: float) -> void:
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -18,9 +23,11 @@ func _process(delta: float) -> void:
 	
 	velocity = direction * move_speed
 	
-	if Input.is_action_just_pressed("space"):
-		for i in range(PartyManager.party_members.size()):
-					TextBox.queue_text("Theres absolutely [color=red]NO[/color] way that just happened")
+	if TextBox.is_displaying():
+		move_speed = 0
+	else:
+		move_speed = 25
+	
 			
 	if Input.is_action_pressed("shift"):
 		move_speed = 50
@@ -81,3 +88,21 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+		
+func save_location() -> void:
+	var save_data = {"x": player.global_position.x, "y": player.global_position.y}
+	var file = FileAccess.open("user://savelocation.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(save_data))
+	file.close()
+
+	
+	
+func load_location() -> Vector2:
+	if FileAccess.file_exists("user://savelocation.json"):
+		var file = FileAccess.open("user://savelocation.json", FileAccess.READ)
+		var content = file.get_as_text()
+		file.close()
+		var result = JSON.parse_string(content)
+		if typeof(result) == TYPE_DICTIONARY and result.has("x") and result.has("y"):
+			return Vector2(result["x"], result["y"])
+	return Vector2.ZERO

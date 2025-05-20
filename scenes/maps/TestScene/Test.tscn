@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjlwiak7qs876"]
+[gd_scene load_steps=6 format=3 uid="uid://bjlwiak7qs876"]
 
 [ext_resource type="PackedScene" uid="uid://hkicpd438c2h" path="res://scenes/characters/maincast/maincharacter/MainCharacter.tscn" id="1_2jlpk"]
-[ext_resource type="Script" uid="uid://bk0bclek2dbyb" path="res://scenes/maps/TestScene/test.gd" id="1_cq2v8"]
+[ext_resource type="Script" uid="uid://yey6jpgmc2v6" path="res://scenes/global_components/save_info/save_point.gd" id="1_223uf"]
+[ext_resource type="PackedScene" uid="uid://crxjdmycmmmdc" path="res://scenes/characters/other/npc.tscn" id="5_223uf"]
 [ext_resource type="PackedScene" uid="uid://c8eqp5o1gkq3j" path="res://scenes/characters/enemies/default_enemy_group.tscn" id="5_jpsq1"]
+[ext_resource type="PackedScene" uid="uid://icnaqs71tqr2" path="res://scenes/global_components/save_info/save_point.tscn" id="6_gw6up"]
 
 [node name="Test" type="Node2D"]
-script = ExtResource("1_cq2v8")
 
 [node name="Player" parent="." instance=ExtResource("1_2jlpk")]
-position = Vector2(150, 150)
+position = Vector2(133, 195)
 scale = Vector2(0.990511, 1)
 
 [node name="EnemyGroup" parent="." instance=ExtResource("5_jpsq1")]
 position = Vector2(50, 56)
 enemy_group = [{
-"enemy_health": 5,
+"enemy_health": 1,
 "enemy_id": 1,
 "enemy_power": 1,
 "given_xp": 1000,
@@ -22,7 +23,7 @@ enemy_group = [{
 "speed": 3,
 "sprite_node": ""
 }, {
-"enemy_health": 5,
+"enemy_health": 1,
 "enemy_id": 2,
 "enemy_power": 2,
 "given_xp": 1000,
@@ -35,7 +36,7 @@ enemy_group = [{
 position = Vector2(124, 42)
 trigger_id = "2"
 enemy_group = [{
-"enemy_health": 5,
+"enemy_health": 1,
 "enemy_id": 1,
 "enemy_power": 1,
 "given_xp": 1000,
@@ -43,7 +44,7 @@ enemy_group = [{
 "speed": 3,
 "sprite_node": ""
 }, {
-"enemy_health": 5,
+"enemy_health": 1,
 "enemy_id": 2,
 "enemy_power": 2,
 "given_xp": 1000,
@@ -51,3 +52,9 @@ enemy_group = [{
 "speed": 6,
 "sprite_node": ""
 }]
+
+[node name="NPC" parent="." instance=ExtResource("5_223uf")]
+
+[node name="SavePoint" parent="." instance=ExtResource("6_gw6up")]
+position = Vector2(150, 193)
+script = ExtResource("1_223uf")

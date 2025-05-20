@@ -63,6 +63,7 @@ func _on_body_entered(body: Node) -> void:
 		set_deferred("collision_layer", 0) 
 		set_deferred("collision_mask", 0)  
 		queue_free() 
+		TextBox.clear_textbox()
 		GameState.used_triggers.append(trigger_id)
 		GameState.last_position = body.global_position
 		EnemyManager.add_enemy_group(enemy_group)

@@ -104,6 +104,7 @@ func add_enemies():
 func end_fight():
 	Turn_Array.clear()
 	print("All party Members have died")
+	GameState.StartFromSave = true
 	get_tree().change_scene_to_file("res://scenes/userinterfaces/Main_Menu_Screen/Main_Menu.tscn")
 
 func end_victory():
