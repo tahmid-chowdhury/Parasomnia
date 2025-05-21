@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cv3v00v1nsfvv" path="res://scenes/characters/maincast/maincharacter/Player.gd" id="1_74lsv"]
 [ext_resource type="Texture2D" uid="uid://dmaxgdd0k3g0s" path="res://scenes/characters/maincast/maincharacter/sprites/MCspritesheet.png" id="2_18blu"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_26i24"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut2pu"]
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_msmgx"]
 length = 0.001
@@ -134,7 +134,7 @@ texture = ExtResource("2_18blu")
 hframes = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_26i24")
+shape = SubResource("RectangleShape2D_ut2pu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
