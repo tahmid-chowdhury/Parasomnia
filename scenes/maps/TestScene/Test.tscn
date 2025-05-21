@@ -9,11 +9,11 @@
 [node name="Test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2jlpk")]
-position = Vector2(133, 195)
+position = Vector2(128, 192)
 scale = Vector2(0.990511, 1)
 
 [node name="EnemyGroup" parent="." instance=ExtResource("5_jpsq1")]
-position = Vector2(50, 56)
+position = Vector2(64, 64)
 enemy_group = [{
 "enemy_health": 1,
 "enemy_id": 1,
@@ -33,7 +33,7 @@ enemy_group = [{
 }]
 
 [node name="BattleTrigger2" parent="." instance=ExtResource("5_jpsq1")]
-position = Vector2(124, 42)
+position = Vector2(128, 64)
 trigger_id = "2"
 enemy_group = [{
 "enemy_health": 1,
@@ -56,5 +56,5 @@ enemy_group = [{
 [node name="NPC" parent="." instance=ExtResource("5_223uf")]
 
 [node name="SavePoint" parent="." instance=ExtResource("6_gw6up")]
-position = Vector2(150, 193)
+position = Vector2(160, 192)
 script = ExtResource("1_223uf")
