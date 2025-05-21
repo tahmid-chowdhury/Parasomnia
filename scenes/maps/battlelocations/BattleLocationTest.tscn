@@ -27,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00631, 0.993391)
 script = ExtResource("1_nnqnf")
 
 [node name="TurnManager" type="Node" parent="."]
@@ -69,7 +70,7 @@ offset_top = -46.0
 offset_right = 131.0
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel/VBoxContainer"]
+[node name="Row1" type="MarginContainer" parent="CanvasLayer/Control/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -78,35 +79,29 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel/VBoxContainer/Row1"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="AttackButton" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
 text = "Attack"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="DefendButton" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
 text = "Defend"
 
-[node name="Button3" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
-text = "Button"
+text = "Item"
 
-[node name="Button4" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 6
-text = "Button"
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Panel/VBoxContainer"]
+[node name="Row2" type="MarginContainer" parent="CanvasLayer/Control/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -115,33 +110,27 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel/VBoxContainer/Row2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="MagicButton" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/Row2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
 text = "Magic"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/Row2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
-text = "Button"
+text = "Skill"
 
-[node name="Button3" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/Row2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 6
-text = "Button"
-
-[node name="Button4" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 6
-text = "Button"
+text = "Flee"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 256.0
@@ -227,17 +216,22 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/Panel/VBoxContainer"]
+[node name="EnemyOrder" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 10
-text = "dsa"
+theme_override_font_sizes/normal_font_size = 8
+text = "Battle Order"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer/Button" to="CanvasLayer/Control" method="_on_attack_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/HBoxContainer/Button2" to="CanvasLayer/Control" method="_on_defend_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer2/HBoxContainer/Button" to="CanvasLayer/Control" method="_on_magic_pressed"]
+[node name="RecentBattleChange" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+text = "Battle Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer/AttackButton" to="CanvasLayer/Control" method="_on_attack_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer/DefendButton" to="CanvasLayer/Control" method="_on_defend_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/Row2/HBoxContainer/MagicButton" to="CanvasLayer/Control" method="_on_magic_pressed"]
