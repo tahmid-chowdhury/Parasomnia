@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjlwiak7qs876"]
+[gd_scene load_steps=3 format=3 uid="uid://bjlwiak7qs876"]
 
 [ext_resource type="PackedScene" uid="uid://hkicpd438c2h" path="res://scenes/characters/maincast/maincharacter/MainCharacter.tscn" id="1_2jlpk"]
-[ext_resource type="PackedScene" uid="uid://crxjdmycmmmdc" path="res://scenes/characters/other/npc.tscn" id="5_223uf"]
 [ext_resource type="PackedScene" uid="uid://c8eqp5o1gkq3j" path="res://scenes/characters/enemies/default_enemy_group.tscn" id="5_jpsq1"]
-[ext_resource type="PackedScene" uid="uid://icnaqs71tqr2" path="res://scenes/global_components/scripts and scenes/save_point.tscn" id="6_gw6up"]
 
 [node name="Test" type="Node2D"]
 
@@ -14,20 +12,24 @@ scale = Vector2(0.990511, 1)
 [node name="EnemyGroup" parent="." instance=ExtResource("5_jpsq1")]
 position = Vector2(64, 64)
 enemy_group = [{
-"enemy_health": 1,
+"enemy_health": 5,
 "enemy_id": 1,
-"enemy_power": 1,
+"enemy_max_health": 5,
+"enemy_power": 12,
 "given_xp": 1000,
+"level": 3,
 "name": "Goblin",
 "speed": 3,
 "sprite_node": ""
 }, {
-"enemy_health": 1,
+"enemy_health": 5,
 "enemy_id": 2,
-"enemy_power": 2,
+"enemy_max_health": 5,
+"enemy_power": 12,
 "given_xp": 1000,
-"name": "Ninja",
-"speed": 6,
+"level": 1,
+"name": "Goblin",
+"speed": 3,
 "sprite_node": ""
 }]
 
@@ -35,24 +37,23 @@ enemy_group = [{
 position = Vector2(128, 64)
 trigger_id = "2"
 enemy_group = [{
-"enemy_health": 1,
+"enemy_health": 5,
 "enemy_id": 1,
-"enemy_power": 1,
+"enemy_max_health": 5,
+"enemy_power": 12,
 "given_xp": 1000,
-"name": "Goblin",
+"level": 1,
+"name": "Ninja",
 "speed": 3,
 "sprite_node": ""
 }, {
-"enemy_health": 1,
+"enemy_health": 11,
 "enemy_id": 2,
-"enemy_power": 2,
+"enemy_max_health": 11,
+"enemy_power": 12,
 "given_xp": 1000,
-"name": "Ninja",
-"speed": 6,
+"level": 2,
+"name": "Goblin",
+"speed": 3,
 "sprite_node": ""
 }]
-
-[node name="NPC" parent="." instance=ExtResource("5_223uf")]
-
-[node name="SavePoint" parent="." instance=ExtResource("6_gw6up")]
-position = Vector2(160, 192)

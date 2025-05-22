@@ -90,7 +90,10 @@ func index_turn():
 					battle_location.selector.visible = false
 
 				if target_enemy.has("sprite_node") and is_instance_valid(target_enemy["sprite_node"]):
-					target_enemy["sprite_node"].queue_free()
+					
+					var sprite = target_enemy["sprite_node"]
+					sprite.remove_from_group("battle_enemies")
+					sprite.queue_free()
 
 				total_xp_gain += target_enemy["given_xp"]
 

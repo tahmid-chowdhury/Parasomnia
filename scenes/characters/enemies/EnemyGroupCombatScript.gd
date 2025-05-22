@@ -7,20 +7,24 @@ extends Area2D
 		"enemy_id": 1,
 		"name": "Goblin",
 		"enemy_health": 5,
+		"enemy_max_health": 5,
 		"speed": 3,
 		"enemy_power": 12,
 		"given_xp": 1000,
-		"sprite_node": ""
+		"sprite_node": "",
+		"level": 1
 	},
 	{
 		"enemy_id": 2,
-		"name": "Ninja",
+		"name": "Goblin",
 		"enemy_health": 5,
-		"speed": 6,
-		"enemy_power": 2,
+		"enemy_max_health": 5,
+		"speed": 3,
+		"enemy_power": 12,
 		"given_xp": 1000,
-		"sprite_node": ""
-	}
+		"sprite_node": "",
+		"level": 1
+	},
 ]
 
 @onready var enemy_node = self
