@@ -23,16 +23,21 @@ func _process(delta: float) -> void:
 	
 	velocity = direction * move_speed
 	
-	if TextBox.is_displaying():
-		move_speed = 0
-	else:
-		move_speed = 25
+
 	
 			
 	if Input.is_action_pressed("shift"):
 		move_speed = 50
 	else:
 		move_speed = 25
+		
+	if TextBox.is_displaying():
+		move_speed = 0
+	else:
+		if Input.is_action_pressed("shift"):
+			move_speed = 50
+		else:
+			move_speed = 25
 
 	var changed_state = SetState()
 	var changed_dir = SetDirection()
@@ -76,10 +81,15 @@ func UpdateAnimation() -> void:
 		print("Error: AnimationPlayer node not found!")
 		return
 
-	var anim_name = state + "_" + AnimDirection()
+	var current_state = state
+	if TextBox.is_displaying():
+		current_state = "idle"
 
-	if animation_player.current_animation != anim_name or state == "walk":
+	var anim_name = current_state + "_" + AnimDirection()
+
+	if animation_player.current_animation != anim_name or current_state == "walk":
 		animation_player.play(anim_name)
+
 
 func AnimDirection() -> String:
 	if cardinal_direction == Vector2.DOWN:

@@ -12,7 +12,7 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wwco"]
-bg_color = Color(0.106858, 0.000169264, 0.226452, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [node name="CharacterTextBox" type="CanvasLayer"]
 script = ExtResource("1_klb58")
@@ -41,34 +41,16 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Panel" type="Panel" parent="Textbox_Container/MarginContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3wwco")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Textbox_Container/MarginContainer"]
+[node name="TextInput" type="RichTextLabel" parent="Textbox_Container/MarginContainer/Panel"]
+custom_minimum_size = Vector2(0, 29)
 layout_mode = 2
-
-[node name="Textbox_Start" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_fonts/normal_font = ExtResource("2_l7c65")
-text = ">"
-
-[node name="TextInput" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 28)
-layout_mode = 2
+offset_right = 192.0
+offset_bottom = 29.0
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_l7c65")
 theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
 scroll_active = false
-
-[node name="Textbox_End" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_fonts/normal_font = ExtResource("2_l7c65")
-text = "v"

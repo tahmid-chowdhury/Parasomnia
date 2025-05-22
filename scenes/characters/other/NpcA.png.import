@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brrp01cfh63ds"
-path="res://.godot/imported/Tutorial Tileset.png-bec12c4b6b4f6c12bda86d1080dfee63.ctex"
+uid="uid://chkqqcxsun4my"
+path="res://.godot/imported/NpcA.png-8b7f87a03517717b1e974ffd26b7a7a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Tutorial Tileset.png"
-dest_files=["res://.godot/imported/Tutorial Tileset.png-bec12c4b6b4f6c12bda86d1080dfee63.ctex"]
+source_file="res://scenes/characters/other/NpcA.png"
+dest_files=["res://.godot/imported/NpcA.png-8b7f87a03517717b1e974ffd26b7a7a3.ctex"]
 
 [params]
 

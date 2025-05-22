@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://btnot5o0kn0ah"]
+
+[ext_resource type="Script" uid="uid://dagughjl3wbwm" path="res://scenes/global_components/scripts and scenes/SignScript.gd" id="1_q8vvo"]
+[ext_resource type="Texture2D" uid="uid://bf05m2vrnw28n" path="res://scenes/global_components/sprites/OakSign.png" id="1_rluyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8vvo"]
+size = Vector2(13.5, 11.5)
+
+[node name="SignPoint" type="StaticBody2D"]
+script = ExtResource("1_q8vvo")
+unique_text = ["what I swear I was just… somewhere else?", "where did I go? this isn’t my room.", "why is everything so quiet… but loud at the same time?", "did I fall asleep or—wait, no, I was—", "why can't I remember walking here?", "am I alive?"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(0.0283066, 0.0253006)
+texture = ExtResource("1_rluyj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q8vvo")

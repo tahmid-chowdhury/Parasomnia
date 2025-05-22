@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://crxjdmycmmmdc"]
 
-[ext_resource type="Script" uid="uid://c2fdbhnlpc0ra" path="res://scenes/maps/TestScene/NPC_script.gd" id="1_7l2b4"]
+[ext_resource type="Script" uid="uid://c2fdbhnlpc0ra" path="res://scenes/characters/other/NPC_script.gd" id="1_7l2b4"]
 [ext_resource type="Texture2D" uid="uid://cton3rxbolitb" path="res://scenes/characters/maincast/maincharacter/sprites/MCBattleSprite.png" id="2_5t3ka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gw6up"]

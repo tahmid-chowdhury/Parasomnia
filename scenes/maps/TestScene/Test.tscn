@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjlwiak7qs876"]
+[gd_scene load_steps=5 format=3 uid="uid://bjlwiak7qs876"]
 
 [ext_resource type="PackedScene" uid="uid://hkicpd438c2h" path="res://scenes/characters/maincast/maincharacter/MainCharacter.tscn" id="1_2jlpk"]
-[ext_resource type="Script" uid="uid://yey6jpgmc2v6" path="res://scenes/global_components/save_info/save_point.gd" id="1_223uf"]
 [ext_resource type="PackedScene" uid="uid://crxjdmycmmmdc" path="res://scenes/characters/other/npc.tscn" id="5_223uf"]
 [ext_resource type="PackedScene" uid="uid://c8eqp5o1gkq3j" path="res://scenes/characters/enemies/default_enemy_group.tscn" id="5_jpsq1"]
-[ext_resource type="PackedScene" uid="uid://icnaqs71tqr2" path="res://scenes/global_components/save_info/save_point.tscn" id="6_gw6up"]
+[ext_resource type="PackedScene" uid="uid://icnaqs71tqr2" path="res://scenes/global_components/scripts and scenes/save_point.tscn" id="6_gw6up"]
 
 [node name="Test" type="Node2D"]
 
@@ -57,4 +56,3 @@ enemy_group = [{
 
 [node name="SavePoint" parent="." instance=ExtResource("6_gw6up")]
 position = Vector2(160, 192)
-script = ExtResource("1_223uf")
