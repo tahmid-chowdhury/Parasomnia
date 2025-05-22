@@ -137,7 +137,8 @@ func end_victory():
 	print("All enemies defeated! You win!")
 	for member in PartyManager.party_members:
 		PartyManager.level_up_stats(member["name"], total_xp_gain)
-	get_tree().change_scene_to_file("res://scenes/maps/TestScene/Test.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/maps/TestScene/Test.tscn")
+
 
 func calculate_damage(Attack_Choice: String, Player_Index: int):
 	if Attack_Choice == "Attack":
