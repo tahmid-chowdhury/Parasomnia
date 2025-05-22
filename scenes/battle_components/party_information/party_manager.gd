@@ -8,20 +8,20 @@ const base_party_members = [
 		"hp": 100,
 		"max_hp": 100,
 		"mana": 10,
-		"strength": 100,
+		"strength": 3,
 		"defense": 5,
 		"speed": 5,
 		"level": 1,
 		"xp": 0,
 		"xp_required": 100,
 		"move": "idle",
+		"sprite": "res://scenes/characters/maincast/maincharacter/sprites/MCBattleSprite.png"
 	}
 ]
 
 var party_members = []
 
 func _ready():
-
 	randomize()
 	load_party()
 	
@@ -79,6 +79,25 @@ func find_party_member(indicated_party_member: String):
 			altered_player_index = party_member
 			return altered_player_index
 	return -1
+	
+func place_party_members():
+	for party_member in range(base_party_members.size()):
+		var member_data = base_party_members[party_member]
+		var sprite_path = member_data["sprite"]
+		
+		if ResourceLoader.exists(sprite_path):
+			var sprite = Sprite2D.new()
+			sprite.texture = load(sprite_path)
+			if party_members.size() == 1:
+				sprite.position = Vector2(80,90)
+			elif party_members.size() == 2:
+				sprite.position = Vector2(60, 80 + party_member * 30)
+			else:
+				sprite.position = Vector2(60, 80 + party_member * 30)
+			
+			add_child(sprite)
+		else:
+			print("Sprite not found for: ", member_data["name"])
 
 
 func get_random_alive_member() -> int:
@@ -109,6 +128,47 @@ func save_party():
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
 	file.close()
+	
+func add_partymember_to_party(member: String):
+	
+	var newMember = member
+	
+	var newMemberStats = {}
+
+	match newMember:
+		"mage":
+			newMemberStats = {
+				"level": 1,
+				"hp": 40,
+				"mana": 1,
+				"strength": 3,
+				"xp": 0,
+				"xp_required": 250
+			}
+		"archer":
+			newMemberStats = {
+				"level": 1,
+				"hp": 50,
+				"mana": 0,
+				"strength": 4,
+				"xp": 0,
+				"xp_required": 250
+			}
+		"medic":
+			newMemberStats = {
+				"level": 1,
+				"hp": 45,
+				"mana": 2,
+				"strength": 2,
+				"xp": 0,
+				"xp_required": 250
+			}
+			print("Unknown class type: ", newMember)
+	
+	
+	party_members.append(
+		newMemberStats
+	)
 
 func set_stats(player_name: String = "Hero", stats: Dictionary = {
 	"level": 1,

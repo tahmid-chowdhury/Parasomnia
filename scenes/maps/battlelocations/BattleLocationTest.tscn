@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://51an7idygm6b"]
+[gd_scene load_steps=9 format=3 uid="uid://51an7idygm6b"]
 
 [ext_resource type="Script" uid="uid://dajrok1dnlb68" path="res://scenes/battle_components/turn_information/turn_manager.gd" id="1_5txgg"]
 [ext_resource type="Script" uid="uid://bgu6wrc4jo6wi" path="res://scenes/maps/battlelocations/battle_location_test.gd" id="1_nnqnf"]
 [ext_resource type="Script" uid="uid://kvtr38o1ep4d" path="res://scenes/battle_components/party_information/party_manager.gd" id="2_853rh"]
 [ext_resource type="Script" uid="uid://0oxqvwt0m87y" path="res://scenes/battle_components/enemy_information/enemy_manager.gd" id="3_nnqnf"]
 [ext_resource type="Script" uid="uid://km6krchbnm1s" path="res://scenes/battle_components/party_information/player_choice_manager.gd" id="4_mat8w"]
+[ext_resource type="Texture2D" uid="uid://d2cqv1jbslbwp" path="res://scenes/battle_components/sprite_components/arrow_down.png" id="6_mat8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqjcu"]
 bg_color = Color(0.917647, 0, 0, 1)
@@ -231,6 +232,11 @@ theme_override_font_sizes/normal_font_size = 6
 text = "Battle Text"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EnemySelector" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2.38419e-07, -3.57628e-07)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("6_mat8w")
 
 [connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer/AttackButton" to="CanvasLayer/Control" method="_on_attack_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer/DefendButton" to="CanvasLayer/Control" method="_on_defend_pressed"]

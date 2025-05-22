@@ -50,10 +50,18 @@ collision_enabled = false
 
 [node name="Player" parent="." instance=ExtResource("2_hdodr")]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ColissionScript1" type="Area2D" parent="."]
 script = ExtResource("3_evj4m")
-unique_area_text = ["What I swear I was just… somewhere else?", "Where did I go? this isn’t my room.", "Why is everything so quiet… but loud at the same time?", "Did I fall asleep or—wait, no, I was— Am I...", "Am I still alive?", "Why can't I remember anything?"]
+unique_area_text = ["What I swear I was just… somewhere else?", "Why am I in this field? Why is everything so colourful and bright?", "Why it so quiet… but loud at the same time?", "Did I fall asleep or—wait, no, I was— Am I...", "Am I still alive?", "...", "I guess its better not to think about that...", "But why can't I remember anything?"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColissionScript1"]
 position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_hdodr")
+
+[node name="ColissionScript2" type="Area2D" parent="."]
+script = ExtResource("3_evj4m")
+unique_area_text = ["Whats that sound?", "What does my head keep pounding?"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColissionScript2"]
+position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_hdodr")

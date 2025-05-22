@@ -35,17 +35,14 @@ func place_enemies():
 		if ResourceLoader.exists(sprite_path):
 			var sprite = Sprite2D.new()
 			sprite.texture = load(sprite_path)
-			sprite.position = Vector2(160, i * 100)
+			sprite.position = Vector2(160, 80 + i * 30)
 			add_child(sprite)
-
+			sprite.add_to_group("battle_enemies")
+			sprite.set_meta("enemy_data", enemy_data)
 			enemy_data["sprite_node"] = sprite
 		else:
 			print("Sprite not found for: ", enemy_data["name"])
 
-			
-		
-		
-	
 func add_enemy_group(enemy_group: Array):
 	for i in range(enemy_group.size()):
 		enemies.append(enemy_group[i])		

@@ -1,7 +1,7 @@
 extends Node
 
 signal player_choice(value)
-
+var selected_enemy_index: int = 0
 
 func send_character_choice(choice: String):
 	emit_signal("player_choice", choice)
