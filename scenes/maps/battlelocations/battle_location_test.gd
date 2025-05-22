@@ -48,6 +48,7 @@ func update_selector_position() -> void:
 			selector.global_position = t.global_position + selector_offset + Vector2(0, selector_float)
 
 func highlight_selected_enemy() -> void:
+	# prune freed nodes
 	battle_enemies = battle_enemies.filter(func(e):
 		return is_instance_valid(e)
 	)
@@ -57,9 +58,11 @@ func highlight_selected_enemy() -> void:
 		selector.visible = false
 		return
 
+	# clamp into valid range
 	selected_enemy_index = clamp(selected_enemy_index, 0, battle_enemies.size() - 1)
 	$CanvasLayer/Control.selected_enemy_index = selected_enemy_index
 
+	# recolor highlights
 	for i in range(battle_enemies.size()):
 		var e = battle_enemies[i]
 		e.modulate = Color(1, 0.6, 0.6) if i == selected_enemy_index else Color(1, 1, 1)
@@ -69,15 +72,21 @@ func highlight_selected_enemy() -> void:
 	update_selector_position()
 
 func refresh_after_enemy_removed() -> void:
+	# wait one frame so queue_free() actually completes
 	await get_tree().process_frame
 
+	# rebuild the list from group & prune
 	battle_enemies = get_tree().get_nodes_in_group("battle_enemies")
 	battle_enemies = battle_enemies.filter(func(e):
 		return is_instance_valid(e)
 	)
+
+	# if nothing left, hide arrow
 	if battle_enemies.is_empty():
 		selected_enemy_index = 0
 		selector.visible = false
 		return
+
+	# if our old index is now out of range, clamp it down
 	selected_enemy_index = clamp(selected_enemy_index, 0, battle_enemies.size() - 1)
 	highlight_selected_enemy()
