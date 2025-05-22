@@ -22,9 +22,6 @@ func _process(delta: float) -> void:
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	velocity = direction * move_speed
-	
-
-	
 			
 	if Input.is_action_pressed("shift"):
 		move_speed = 50
