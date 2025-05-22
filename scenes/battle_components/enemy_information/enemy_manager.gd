@@ -42,6 +42,7 @@ func place_enemies():
 			sprite.set_meta("enemy_id",     enemy_data["enemy_id"])
 			sprite.set_meta("enemy_name",   enemy_data["name"])
 			sprite.set_meta("enemy_health", enemy_data["enemy_health"])
+			sprite.set_meta("enemy_max_health", enemy_data["enemy_max_health"])
 			sprite.set_meta("enemy_speed",  enemy_data["speed"])
 			sprite.set_meta("enemy_power",  enemy_data["enemy_power"])
 			sprite.set_meta("enemy_xp",     enemy_data["given_xp"])

@@ -11,7 +11,7 @@ var total_xp_gain = 0
 func _ready() -> void:
 	create_turn_order()
 	process_and_reset_turns()
-	if Turn_Array.is_empty():
+	if Turn_Array.size() < 2:
 		end_victory()
 
 func process_and_reset_turns():
@@ -110,7 +110,7 @@ func index_turn():
 			if EnemyManager.enemies.size() == 0:
 				end_victory()
 				return
-
+	battle_location.emit_signal("update_bars")
 	turn_index += 1
 	process_and_reset_turns()
 

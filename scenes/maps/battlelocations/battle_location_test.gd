@@ -2,11 +2,15 @@ extends Control
 
 var battle_enemies: Array = []
 var selected_enemy_index: int = 0
+signal update_bars
 
 @onready var attack_button   := $CanvasLayer/Control/Panel/VBoxContainer/Row1/HBoxContainer/AttackButton
 @onready var selector        := $CanvasLayer/EnemySelector
 @onready var name_label      := $CanvasLayer/HBoxContainer/Panel2/VBoxContainer/NameLabel    as RichTextLabel
 @onready var level_label     := $CanvasLayer/HBoxContainer/Panel2/VBoxContainer/LevelLabel   as RichTextLabel
+@onready var battle_text := $CanvasLayer/HBoxContainer/Panel/VBoxContainer/RecentBattleChange as RichTextLabel
+@onready var health_bar := $CanvasLayer/HBoxContainer/Panel2/HBoxContainer/EnemyHealthBar
+@onready var mana_bar := $CanvasLayer/HBoxContainer/Panel2/HBoxContainer/EnemyManaBar
 @onready var selector_offset := Vector2(20, 0)
 var selector_float: float    = 0.0
 
@@ -15,6 +19,7 @@ func _ready() -> void:
 	PartyManager.place_party_members()
 	_refresh_enemy_list()
 	attack_button.grab_focus()
+	connect("update_bars", Callable (self, "_refresh_enemy_list"))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_bumper"):
@@ -26,6 +31,7 @@ func _process(delta: float) -> void:
 	if selector.visible:
 		selector_float = sin(Time.get_ticks_msec() / 200.0) * 5
 		_update_selector_position()
+		_update_enemy_info()
 
 func refresh_after_enemy_removed() -> void:
 	print(">>> refresh_after_enemy_removed() called")
@@ -36,8 +42,9 @@ func refresh_after_enemy_removed() -> void:
 func _change_selection(dir: int) -> void:
 	if battle_enemies.is_empty():
 		return
-	selected_enemy_index = (selected_enemy_index + dir) % battle_enemies.size()
+	selected_enemy_index = (selected_enemy_index + dir + battle_enemies.size()) % battle_enemies.size()
 	_refresh_enemy_list()
+
 
 func _refresh_enemy_list() -> void:
 	battle_enemies = get_tree().get_nodes_in_group("battle_enemies")
@@ -77,11 +84,20 @@ func _update_selector_position() -> void:
 
 func _update_enemy_info() -> void:
 	var node = battle_enemies[selected_enemy_index]
-	var name = node.get_meta("enemy_name")
-	var lvl  = node.get_meta("enemy_level")
+	var data = node.get_meta("enemy_data") as Dictionary
 
-	name_label.bbcode_text  = "[b]Name:[/b]  %s" % name
-	level_label.bbcode_text = "[b]Level:[/b] %s" % lvl
+	var name   = data["name"]
+	var lvl    = data["level"]     
+	var hp     = data["enemy_health"]
+	var max_hp = data["enemy_max_health"]
+
+	name_label.bbcode_text  = "%s" % name
+	level_label.bbcode_text = "Lv %d" % lvl
+	health_bar.min_value = 0
+	health_bar.max_value = max_hp
+	health_bar.value     = hp
+
+
 
 func _clear_info() -> void:
 	name_label.clear()
